@@ -1,0 +1,11 @@
+match_id,date,team,map,opponent,result,rounds_won,rounds_lost
+1,2023-01-12,TeamA,Inferno,TeamX,Win,16,10
+2,2023-01-13,TeamA,Mirage,TeamY,Loss,12,16
+3,2023-01-15,TeamA,Nuke,TeamZ,Win,16,8
+4,2023-02-01,TeamA,Overpass,TeamX,Loss,14,16
+5,2023-02-05,TeamA,Inferno,TeamY,Win,16,9
+6,2023-02-12,TeamA,Mirage,TeamZ,Win,16,13
+7,2023-02-20,TeamA,Nuke,TeamX,Win,16,11
+8,2023-03-01,TeamA,Overpass,TeamY,Loss,13,16
+9,2023-03-10,TeamA,Inferno,TeamZ,Win,16,7
+10,2023-03-15,TeamA,Mirage,TeamX,Loss,10,16
