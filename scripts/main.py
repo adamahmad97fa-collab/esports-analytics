@@ -40,8 +40,34 @@ worst_map = map_winrate.idxmin()
 print("\nInsights:")
 print(f"Best map: {best_map} ({map_winrate[best_map]:.1f}%)")
 print(f"Worst map: {worst_map} ({map_winrate[worst_map]:.1f}%)")
-best_map = map_winrate.idxmax()
-worst_map = map_winrate.idxmin()
+# --- Win rate by map over time ---
 
+# Convert date column to datetime
+df["date"] = pd.to_datetime(df["date"])
+df["month"] = df["date"].dt.to_period("M")
 
+# Calculate win rate by map and month
+map_trends = (
+    df.groupby(["map", "month"])["result"]
+      .mean()
+      .reset_index()
+)
 
+# Plot win rate trends
+plt.figure(figsize=(10, 6))
+
+for map_name in map_trends["map"].unique():
+    subset = map_trends[map_trends["map"] == map_name]
+    plt.plot(
+        subset["month"].astype(str),
+        subset["result"] * 100,
+        label=map_name
+    )
+
+plt.title("Win Rate by Map Over Time")
+plt.ylabel("Win Rate (%)")
+plt.xlabel("Month")
+plt.legend()
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
